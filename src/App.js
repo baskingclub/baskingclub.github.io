@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import poster from './poster.jpg'
 import vid from './video.mp4'
 import styled, { injectGlobal } from 'styled-components'
+import isAutoplaySupported from './isAutoplaySupported'
 
 injectGlobal`
   body {
@@ -70,7 +71,6 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.onResize = this.onResize.bind(this)
-    this.onPlay = this.onPlay.bind(this)
   }
   onResize() {
     this.setState({
@@ -79,20 +79,20 @@ export default class App extends Component {
   }
   componentDidMount() {
     window.addEventListener('resize', this.onResize)
-    this.onResize()
+    isAutoplaySupported(autoplay => {
+      this.setState({ autoplay })
+      this.onResize()
+    })
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.onResize)
   }
-  onPlay() {
-    this.setState({ playing: true })
-  }
   render() {
-    const { playing, size } = this.state
+    const { autoplay, playing, size } = this.state
     return (
       <Container>
-        { size && <BgVideo onPlay={this.onPlay} width={size} height={size}/> }
-        { !playing && <BgImage/> }
+        { size &&  autoplay && <BgVideo width={size} height={size}/> }
+        { size && !autoplay && <BgImage/> }
         <Container>
           <Logo/>
           <Links>
