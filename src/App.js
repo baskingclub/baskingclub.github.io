@@ -7,9 +7,9 @@ import isAutoplaySupported from './isAutoplaySupported'
 
 injectGlobal`
   body {
-    font-family: monospace;
+    font-family: Menlo,Monaco,'Lucida Console','Liberation Mono','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New',mono,monospace;
     background-color: #e8390e;
-    font-size: 15px;
+    font-size: 12px;
   }
 `
 const BgVideo = styled.video.attrs({
@@ -49,8 +49,8 @@ const Container = styled.div`
   flex-direction: column;
 `
 const Logo = styled.img.attrs({
-  width: 179,
-  height: 300,
+  width: 120,
+  height: 200,
   src: logo
 })`
   margin: 20px;
