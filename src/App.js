@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
-import poster from './poster.jpg'
-import vid from './video.mp4'
+import gif from './video.gif'
 import styled, { injectGlobal } from 'styled-components'
-import isAutoplaySupported from './isAutoplaySupported'
 
 injectGlobal`
   body {
@@ -12,22 +10,12 @@ injectGlobal`
     font-size: 12px;
   }
 `
-const BgVideo = styled.video.attrs({
-  src: vid,
-  autoPlay: true,
-  loop: true,
-})`
-  flex-shrink: 0;
-`
 const BgImage = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(${poster});
+  width: 100%;
+  height: 100%;
+  background-image: url(${gif});
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: center top;
 `
 
 const Links = styled.div`
@@ -37,7 +25,6 @@ const Links = styled.div`
 const Container = styled.div`
   overflow-x: hidden;
   -wekit-oveflow-scrolling: touch;
-  background-color: rgba(0,0,0,0.5);
   position: fixed;
   left: 0;
   top: 0;
@@ -67,32 +54,10 @@ const Link = styled.a`
 `
 
 export default class App extends Component {
-  state = {}
-  constructor(props) {
-    super(props)
-    this.onResize = this.onResize.bind(this)
-  }
-  onResize() {
-    this.setState({
-      size: Math.max(window.innerWidth, window.innerHeight)
-    })
-  }
-  componentDidMount() {
-    window.addEventListener('resize', this.onResize)
-    isAutoplaySupported(autoplay => {
-      this.setState({ autoplay })
-      this.onResize()
-    })
-  }
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize)
-  }
   render() {
-    const { autoplay, playing, size } = this.state
     return (
       <Container>
-        { size &&  autoplay && <BgVideo width={size} height={size}/> }
-        { size && !autoplay && <BgImage/> }
+        <BgImage />
         <Container>
           <Logo/>
           <Links>
