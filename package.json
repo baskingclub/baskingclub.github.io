@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gatsby": "^1.9.259",
+    "gatsby-plugin-styled-components": "^2.0.11",
     "gh-pages": "^1.1.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "styled-components": "^3.2.5",
-    "gatsby": "^1.9.259",
-    "gh-pages": "^1.1.0"
+    "styled-components": "^3.2.5"
   },
   "scripts": {
     "start": "gatsby develop --port=5000",
+    "serve": "gatsby serve --port=5000",
     "build": "gatsby build --prefix-paths",
     "prerelease": "npm run build",
     "release": "gh-pages -d public -b master"
