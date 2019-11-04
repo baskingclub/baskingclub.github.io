@@ -5,21 +5,21 @@
   "version": "0.1.0",
   "author": "Yusuke Shibata <shibata@fata.io>",
   "dependencies": {
-    "gatsby": "^2.17.6",
+    "gatsby": "^2.17.7",
     "gatsby-image": "^2.2.30",
-    "gatsby-plugin-manifest": "^2.2.25",
+    "gatsby-plugin-manifest": "^2.2.26",
     "gatsby-plugin-offline": "^3.0.17",
     "gatsby-plugin-react-helmet": "^3.1.13",
-    "gatsby-plugin-sharp": "^2.2.34",
-    "gatsby-plugin-styled-components": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.2.36",
+    "gatsby-plugin-styled-components": "^3.1.11",
     "gatsby-source-filesystem": "^2.1.35",
-    "gatsby-transformer-sharp": "^2.3.1",
+    "gatsby-transformer-sharp": "^2.3.2",
     "gh-pages": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
-    "styled-components": "^3.2.5"
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
@@ -31,7 +31,9 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
   },
   "repository": {
     "type": "git",
