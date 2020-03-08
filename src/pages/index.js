@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import logo from './logo.png'
 import gif from './video.gif'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import SEO from '../components/seo'
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   body {
     font-family: Menlo,Monaco,'Lucida Console','Liberation Mono','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New',mono,monospace;
     background-color: #e8390e;
@@ -58,6 +58,7 @@ export default class App extends Component {
   render() {
     return (
       <Container>
+        <GlobalStyle/>
         <SEO/>
         <BgImage />
         <Container>
